@@ -1,0 +1,26 @@
+mkdir -p build/assets/
+cp -r assets/* build/assets/
+
+cd build
+
+g++ -std=c++11 \
+-DPICOJSON_USE_INT64 \
+-framework opengl \
+-lSOIL \
+-lGLEW \
+-I/usr/local/include/GLFW \
+-L/usr/local/lib \
+-lglfw3 \
+-I/usr/local/opt/freetype/include/freetype2 \
+-L/usr/local/opt/freetype/lib \
+-lfreetype \
+-framework IOKit \
+-framework CoreVideo \
+-framework Cocoa \
+../code/imgui/imgui.cpp \
+../code/imgui/imgui_draw.cpp \
+../code/imgui/imgui_impl_glfw_gl3.cpp \
+../code/voxmesh.cpp \
+-o test
+
+cd ..
